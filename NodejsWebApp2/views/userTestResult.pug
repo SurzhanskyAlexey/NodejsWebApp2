@@ -1,0 +1,31 @@
+include header
+include site-header
+    h1(class="h2") Результаты тестирования:
+    div
+     section
+
+            table
+                thead
+                    tr
+                        th id
+                        th Имя
+                        th Результат
+                        th Статус
+                        th Дата тестирования
+                        th Подробности
+                        tbody
+                        each val, index in userlist
+                            tr
+                                td #{val['user_id']}
+                                td #{val['name']}
+                                td #{val['result']}
+                                if val['complete'] == '1'
+                                  td(class="green-text") завершён
+                                else
+                                  td(class="red-text") не завершён
+                                td #{val['test_time']}
+                                td
+                                    a(href="testReport?test_session="+val['test_session']) Отчёт
+
+
+include footer.pug

@@ -1,0 +1,42 @@
+include header
+include site-header
+    div(class="col col-sm-12 col-xlg-4")
+        section(class="section-secondary")
+         h1(class="h2") Настройки пользователя
+         form(class="user-set" action="/update-user" method="POST")
+                  div(class="form-control")
+                     label Код: #{UserSet[0]['user_id']}
+                      input(name="user_id" type="text" value=UserSet[0]['user_id'] hidden)
+                  div(class="form-control")
+                    label Логин:
+                      input(name="login" type="text" value=UserSet[0]['login'] required)
+                  div(class="form-control")
+                      label Пароль:
+                          input(name="password" type="text" value=UserSet[0]['password'] required)
+                  div(class="form-control")
+                    label Имя пользователя
+                      input(name="name" type="text" value=UserSet[0]['name'] required)
+                  div(class="form-control")
+                    label День экзамена:
+                       input(name="exam_day" type="text" value=UserSet[0]['exam_day'] required)
+                  div(class="form-control")
+                   p
+                    b Текущие настройки:
+                      each val, index in UserSet
+                       div(class="form-control")
+                        label #{val['test_name']} (включено 1/выключено 0): #{val['switch_quest_type']}
+
+                  div(class="form-control")
+                    p
+                     b Доступные настройки:
+                      each val, index in TestType
+                       div(class="form-control")
+                         label   #{val['test_name']}
+                           input(type='checkbox'  name=val['test_set_id'] value =1 checked)
+                           input(name=val['test_set_id'] value="0" type="hidden")
+                  input(type="submit" class="button-primary-outlined"  id='update-user' value="Сохранить настройки")
+
+
+
+
+include footer.pug

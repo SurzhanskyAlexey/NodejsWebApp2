@@ -1,0 +1,43 @@
+include header
+include site-header
+    h1(class="h2") Пользователи
+    div
+        section
+         table
+           thead
+               tr
+                   th Поиск
+                    th
+                        input(type='text' placeholder='поиск пользователя')
+
+         table
+           thead
+             tr
+              th -
+              th id
+              th Логин
+              th Пароль
+              th Имя
+              th День экзамена
+              th
+               tbody
+               each val, index in userlist
+                  tr
+                   td
+                    button(class="delete-user" id=val['user_id']) Удалить
+                     td #{val['user_id']}
+                     td
+                        a(href="UserSet?user_id="+val['user_id']) #{val['login']}
+
+                     td #{val['password']}
+                     td #{val['name']}
+                     td #{val['exam_day']}
+                     td
+                       a(href="userTestResult?user_id=" + val['user_id']) Результаты тестирования
+
+
+         button(class="button-primary-outlined" id='add-user') &#10010;
+    section(style="visibility: visible" class="add-user-form")
+
+
+include footer.pug

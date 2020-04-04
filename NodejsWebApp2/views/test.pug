@@ -1,0 +1,43 @@
+include header
+include site-header
+  div(class='main')
+    div(class='row question')
+    div(class='row answer')
+        form(id="formAnswer" method="POST" action="/test")
+          div(class="row")
+              div(class="column quest-number")
+              div(class="column")
+                 h4 Оставшееся время:
+              div(class="column")
+                 div(id="timer")
+          div(class="row")
+            table
+              thead
+                tr
+                  th
+                    input(type="hidden" name="id_questions" value=question[0]['id_questions'])
+                    h4(class="question") #{question[0]['question']}
+                    input(class="one-question" visibility: hidden value=question[0]['one_answer'])
+                    if question[0]['one_answer'] == 0
+                      p вопрос требует нескольких ответов
+                    else
+                      p вопрос требует одного ответа
+                      div(class="alertMessage")
+          div(class="row")
+            table
+               tbody
+                   each val, index in question
+                      tr
+
+                         td
+                          label
+                           input(type="checkbox" class="qwe" name="answercheckbox:" + val['id_answers'] value=1)
+                           input(name="answercheckbox:" + val['id_answers']  value="0" type="hidden")
+                         td(class="align-left")
+                           h6 #{val['answer']}
+          div(class="row")
+             div
+                input(type ="submit" class="button-black button-outline continue-test" id="timeIsGone" value="Следующий вопрос")
+script(src='/javascripts/questcounter.js')
+
+include footer

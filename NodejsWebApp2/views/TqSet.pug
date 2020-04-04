@@ -1,0 +1,20 @@
+include header
+include site-header
+    div(class="col col-sm-12 col-xlg-4")
+        section(class="section-secondary")
+            h1(class="h2") Настройки пользователя
+            form(class="user-set" action="/update-question-type" method="POST")
+                div(class="form-control")
+                    label Код:
+                        input(name="test_set_id" value=questionTypelist[0]['test_set_id'] readonly)
+                div(class="form-control")
+                    label Тип вопроса:
+                        input(name="test_name" value=questionTypelist[0]['test_name'] required)
+
+                input(type="submit" class="button-primary-outlined"  id='update-question-type' value="Сохранить настройки")
+
+
+
+
+
+include footer.pug

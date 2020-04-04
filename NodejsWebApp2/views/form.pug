@@ -1,0 +1,18 @@
+include header
+include site-header
+    h3 Авторизация пользователя.
+    section
+      fieldset
+        form(action="/receive-answer" method="POST")
+                h4(class="question") Что означает понятие ввод в эксплуатацию узла учета?
+                  label
+                    input(type="checkbox" name="147" value=1)
+                    input(name="147"  value="0" type="hidden")
+                    h6 процедура проверки соответствия узла учета тепловой энергии требованиям нормативных правовых актов и проектной документации, включая составление акта ввода в эксплуатацию узла учета тепловой энергии
+                  label
+                    input(type="checkbox" name="149" value=1)
+                    input(name="149"  value="0" type="hidden")
+                    h6 процедура проверки соответствия узла учета тепловой энергии требованиям нормативных правовых актов и проектной документации, включая составление акта ввода в эксплуатацию узла учета тепловой энергии
+                    input(type="submit" class="button-primary-outlined continue-test" value="Следующий вопрос")
+
+include footer

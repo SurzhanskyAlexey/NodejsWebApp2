@@ -1,0 +1,24 @@
+include header
+include site-header
+    h1(class="h2") Отчет о прохождении теста:
+    div
+     section
+
+            table
+                thead
+                    tr
+                        th Вопрос
+                        th Ответ
+                        th Отметка правильности ответа
+                        th Ответ тестируемого
+                        th Дата тестирования
+                        tbody
+                        each val, index in report
+                            tr
+                                td #{val['question']}
+                                td #{val['answer']}
+                                td #{val['correct']}
+                                td #{val['answer_result']}
+
+
+include footer.pug

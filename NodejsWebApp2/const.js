@@ -1,0 +1,1 @@
+const constQuestAmount=5; module.exports = {constQuestAmount};

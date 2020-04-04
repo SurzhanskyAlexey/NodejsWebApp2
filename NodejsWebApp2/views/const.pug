@@ -1,0 +1,16 @@
+include header
+include site-header
+    div(class="col col-sm-12 col-xlg-4")
+        section(class="section-secondary")
+            h1(class="h2") Константы
+            form(class="user-set" action="/update-constants" method="POST")
+
+                div(class="form-control")
+                    label Количество вопросов
+                        input(type='text' name="questCount" value=constants)
+                        input(type="submit" class="button-primary-outlined"  id='update-constants' value="Сохранить настройки")
+
+
+
+
+include footer.pug

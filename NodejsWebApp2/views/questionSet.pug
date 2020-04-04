@@ -1,0 +1,40 @@
+include header
+include site-header
+    div(class="col col-sm-12 col-xlg-1")
+        section(class="section-secondary")
+            h2 Настройки вопроса
+
+                form( action="/update-question" method="POST")
+                        label Код: #{questionSet[0]['id_questions']}
+                        input(name="id_questions" type="text" value=questionSet[0]['id_questions'] hidden )
+                        label Вопрос:
+                            textarea(name="question"  required) #{questionSet[0]['question']}
+                        label Картинка:
+                            input(name="picture" type="text" value=questionSet[0]['picture'] )
+                        label Раздел вопроса: (Текущее значение- #{questionSet[0]['test_name']})
+                          select(class="type-question-to-db" name="test_set_id")
+                        if questionSet[0]['one_answer'] == 1
+                           label Ответов в вопросе: (Текущее значение- один)
+                            input(name="one_answer" type="checkbox" class="qwe" value=1 checked)
+                            input(name="one_answer" class="qwe" value=0 hidden)
+                        else
+                          label Один правильный ответ в вопросе: (Текущее значение- несколько)
+                            input(name="one_answer" type="checkbox" class="qwe" value=1 )
+                            input(name="one_answer"  class="qwe" value=0 hidden)
+                        each val, index in questionSet
+                         if  val['correct'] == 1
+                            label Ответ: #{[index+1]}
+                             input(name="answer:"+val['id_answers'] type="text"  value=val['answer'] required)
+                             input(name="answer:"+val['id_answers'] type="checkbox"  value=1 checked)
+                             input(name="answer:"+val['id_answers']  value=0 hidden)
+                         else
+                            label Ответ: #{[index + 1]}
+                              input(name="answer:"+val['id_answers'] type="text"  value=val['answer'] required)
+                              input(name="answer:"+val['id_answers'] type="checkbox"  value=1)
+                              input(name="answer:"+val['id_answers']  value=0 hidden)
+                        input(type="submit" class="button"  id='update-question' value="Сохранить настройки")
+
+
+
+script(src='/javascripts/typeQuestion.js')
+include footer.pug

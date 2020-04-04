@@ -1,0 +1,91 @@
+/*body {*/
+/*  padding:5px;*/
+/*  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
+/*}*/
+/*a {*/
+/*  font-size: 20px;*/
+/*  color: #00B7FF;*/
+/*}*/
+
+/*.show-nav {*/
+/*  margin-top: 10px;*/
+/*  margin-right: 10px;*/
+/*}*/
+/*.Title {*/
+/*  margin-left: 10px;*/
+/*}*/
+.menu {
+  visibility: hidden;
+}
+
+
+
+/*.number1 {*/
+
+/*}*/
+/*.button-primary-outlined {*/
+/*margin-top: 5px;*/
+/*}*/
+.main {
+  min-height: 1000px;
+}
+
+/*.row{*/
+/*  margin-top:0px;*/
+/*  margin-bottom: 0px;*/
+/*}*/
+
+/*.align-center-test-button{*/
+/*  margin-left: 45%;*/
+/*}*/
+.qwe {
+  transform:scale(1.3);
+  opacity:0.9;
+  cursor:pointer;
+}
+.green-text {
+  color: green;
+}
+.red-text {
+  color: red;
+}
+.button-black {
+  background-color: black;
+  border-color: black;
+}
+.button-black.button-clear,
+.button-black.button-outline {
+  background-color: transparent;
+  color: black;
+}
+.button-black.button-clear {
+  border-color: transparent;
+}
+
+.milligram {
+  color: black;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.input-black {
+  background-color: black;
+  border-color: black;
+}
+
+.input-black.input-clear,
+.input-black.input-outline {
+  background-color: transparent;
+  color: black;
+}
+/*.textarea {*/
+/*  rows: 10;*/
+/*}*/
+.alertMessage {
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
+}

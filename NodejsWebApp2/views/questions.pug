@@ -1,0 +1,50 @@
+include header
+include site-header
+    h1(class="h2") &quot;Вопросы&quot;
+    section
+         div
+            table
+                thead
+                    tr
+                        th Поиск
+                        th
+                            input(type='text' placeholder='поиск вопроса')
+            table
+                thead
+                    tr
+                        th -
+                        th №
+                        th ID вопроса
+                        th Вопрос
+                        tbody
+                        each val, index in questionlist
+                            tr
+                            td
+                                button(class="button-black button-outline delete-question" id=val['id_questions']) Удалить
+                                td #{index+1}
+                                td #{val['id_questions']}
+                                td
+                                 a(href="questionSet?id_questions="+val['id_questions']) #{val['question']}
+
+            button(class="button-black button-outline" id='add-answer') Добавить ответ
+            form(action="add-question" method="POST")
+              fieldset
+                  label Вопрос
+                   input(name="questiontodb" type="text" placeholder="Введите вопрос" autocomplete="question" required)
+                  label Раздел вопроса
+                   select(name="typequestiontodb" class="type-question-to-db" type="text"  autocomplete="type-question" required)
+                  label Вид вопроса
+                   select(name="one_answer" class="type-question-to-db" type="text"  autocomplete="type-question" required)
+                    option(value=1) C одним ответом
+                    option(value=0) С несколькими ответами
+                  label Картинка
+                   input(name="picture" type="file" placeholder="Добавьте картинку" autocomplete="picture" )
+                   div(class='input-answer')
+                  button(class="button-black button-outline" id='add-question') Сохранить вопрос в БД
+    section(style="visibility: visible" class="add-question-form")
+
+    form(class="user-set" action='download-csv-questions' method="POST")
+        input(type="submit" class="button-black button-outline"  id='download csv' value="Загрузить список в CSV")
+script(src='/javascripts/typeQuestion.js')
+script(src='/javascripts/addAnswer.js')
+include footer.pug

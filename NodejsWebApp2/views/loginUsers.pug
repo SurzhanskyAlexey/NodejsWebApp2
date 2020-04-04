@@ -1,0 +1,18 @@
+include header
+include site-header
+  h2 Авторизация пользователя.
+  section
+    form(action="/loginUsers" method="POST")
+      div( class="form-control")
+        label Логин
+        input(name="login" id="login" type="text" placeholder="Введите логин" value="surzhansky_ag")
+      div( class="form-control")
+        label Пароль
+        input(name="password" id="password" type="password" placeholder="Введите пароль" value="" autocomplete)
+        div( class="form-control")
+        label
+        input(type="submit" class="button-primary-outlined admin-panel" value="Авторизоваться")
+      if {message1} !== "Неверный логин или пароль!"
+        div(class='alertMessage')
+          p #{message1}
+include footer
